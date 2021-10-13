@@ -11,7 +11,27 @@
 //   4
 //   buzz
 
-function fizzBuzz(n) {}
+function fizzBuzz(n) {
+  for (let i = 1; i <= n; i++) {
+    if (isMultiple(i) == false) {
+      console.log(i);
+    } else {
+      console.log(isMultiple(i));
+    }
+  }
+}
+
+function isMultiple(n) {
+  if (n % 3 == 0 && n % 5 == 0) {
+    return "fizzbuzz";
+  } else if (n % 3 == 0) {
+    return "fizz";
+  } else if (n % 5 == 0) {
+    return "buzz";
+  } else {
+    return false;
+  }
+}
 
 // _________ _______  _______ _________   _______  _______  _______  _______  _______
 // \__   __/(  ____ \(  ____ \\__   __/  (  ____ \(  ___  )(  ____ \(  ____ \(  ____ \
