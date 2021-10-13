@@ -3,7 +3,30 @@
 // maxChar("I loveeeeeee noodles") === "e"
 // maxChar("1337") === "3"
 
-function maxChar(str) {}
+const arrToInstanceCountObj = (arr) =>
+  arr.reduce((obj, e) => {
+    obj[e] = (obj[e] || 0) + 1;
+    return obj;
+  }, {});
+
+function maxChar(str) {
+  let objectCounter = arrToInstanceCountObj(str.split(""));
+  //const objectCounter = new Map(str.split(""));
+
+  let keys = Object.keys(objectCounter);
+  let values = Object.values(objectCounter);
+  var maxNumber = 0;
+  var maxNumberPointer;
+  for (let i = 0; i < values.length; i++) {
+    if (values[i] > maxNumber) {
+      maxNumber = values[i];
+      maxNumberPointer = i;
+    } else if (values[i] == maxNumber || values[i] < maxNumber) {
+      maxNumber = maxNumber;
+    }
+  }
+  return keys[maxNumberPointer];
+}
 
 // _________ _______  _______ _________   _______  _______  _______  _______  _______
 // \__   __/(  ____ \(  ____ \\__   __/  (  ____ \(  ___  )(  ____ \(  ____ \(  ____ \
